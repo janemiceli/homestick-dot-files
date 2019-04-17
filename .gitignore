@@ -1,2 +1,5 @@
 home/.config
 !home/.config/nvim/**
+
+home/.floo*
+home/.floo*.*

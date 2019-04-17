@@ -71,9 +71,13 @@ if dein#load_state($HOME.'/tools/dein')
   call dein#add('twerth/ir_black')
   call dein#add('vim-scripts/Wombat')
   call dein#add('w0ng/vim-hybrid')
+  call dein#add('Nequo/vim-allomancer')
+
+  " Vim indent
+  call dein#add('nathanaelkane/vim-indent-guides')
 
 "   " Floobits
-"   call dein#add('Floobits/floobits-neovim')
+  call dein#add('Floobits/floobits-neovim')
 
   " Linters
   call dein#add('w0rp/ale')
@@ -82,6 +86,7 @@ if dein#load_state($HOME.'/tools/dein')
   call dein#add('Shougo/deoplete.nvim')
   call dein#add('zchee/deoplete-jedi')
   call dein#add('ervandew/supertab')
+  " call dein#add('python-rope/ropevim')
 
   " Rails / Ruby
   call dein#add('thoughtbot/vim-rspec')
@@ -90,8 +95,8 @@ if dein#load_state($HOME.'/tools/dein')
   call dein#add('vim-ruby/vim-ruby')
   call dein#add('skalnik/vim-vroom')
 
-"   " Chef
-"   " call dein#add('vadv/vim-chef')
+  " Chef
+  " call dein#add('vadv/vim-chef')
 
   " Javascript
   " call dein#add('jelera/vim-javascript-syntax')
@@ -106,11 +111,6 @@ if dein#load_state($HOME.'/tools/dein')
     call dein#add('roxma/vim-hug-neovim-rpc')
   endif
   let g:deoplete#enable_at_startup = 1
-
-
-  " Help to remember
-  " call dein#add('urbainvaes/vim-remembrall')
-
 
   " Required
   call dein#end()
@@ -269,7 +269,7 @@ vmap <Leader>P "+P
 
 " Set you complete me options
 " Use :lopen to open list window
-let g:EclimCompletionMethod = 'omnifunc'
+" let g:EclimCompletionMethod = 'omnifunc'
 map <Leader>l :lopen<CR>
 
 
@@ -378,7 +378,9 @@ else
  " colorscheme kalisi
  " colorscheme wombat
  " colorscheme ir_black
+ " colorscheme allomancer 
  colorscheme hybrid
+ set termguicolors "Remove this in urxvt
 end
 
 
@@ -428,7 +430,7 @@ imap hh =>
 imap kk ->
 imap aa @
 imap ;; {% %}
-imap zz import pdb<CR>pdb.set_trace()
+imap zz import pudb<CR>pudb.set_trace()
 
 " Change which file opens after executing :Rails command
 " ****************************************
@@ -470,7 +472,7 @@ let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_debug = 1
 let g:deoplete#enable_profile = 1
 
-" call deoplete#enable_logging('DEBUG', '/tmp/deoplete.log')
+call deoplete#enable_logging('DEBUG', '/tmp/deoplete.log')
 
 let g:python_host_prog=$HOME.'/.local/share/virtualenvs/vim2/bin/python2'
 
@@ -478,15 +480,15 @@ let g:python3_host_prog=$HOME.'/.local/share/virtualenvs/vim3/bin/python3'
 let g:python3host_prog=$HOME.'/.local/share/virtualenvs/vim3/bin/python3'
 
 
-let g:syntastic_python_checkers=['python3', 'flake8']
-let g:syntastic_python_flake8_exec = 'python3'
-let g:syntastic_python_flake8_args = ['-m', 'flake8']
+" let g:syntastic_python_checkers=['python3', 'flake8']
+" let g:syntastic_python_flake8_exec = 'python3'
+" let g:syntastic_python_flake8_args = ['-m', 'flake8']
 
-let g:syntastic_auto_loc_list=1
-let g:syntastic_disabled_filetypes=['html']
-let g:syntastic_enable_signs=1
-let g:syntastic_check_on_open=1
-let g:syntastic_enable_signs=1
+" let g:syntastic_auto_loc_list=1
+" let g:syntastic_disabled_filetypes=['html']
+" let g:syntastic_enable_signs=1
+" let g:syntastic_check_on_open=1
+" let g:syntastic_enable_signs=1
 
 let g:flake8_show_in_file=1  " show
 let g:flake8_show_in_gutter=1  " show
@@ -501,17 +503,25 @@ let g:SuperTabDefaultCompletionType = "<c-n>"
 " TypeScript
 let g:nvim_typescript#javascript_support = 1
 
+" Turn on line guides
+let g:indent_guides_enable_on_vim_startup = 1
+
+
 autocmd BufNewFile,BufRead *.ts setlocal filetype=typescript
 
-" Ale ES Linter
-let g:ale_fixers = {
-\   'javascript': ['eslint'],
-\}
-" let g:ale_completion_enabled = 1
-let g:ale_sign_column_always = 1
-" let g:ale_lint_on_enter = 1
+ " Ale ES Linter
 
-" let g:ale_fix_on_save = 1
+ let g:ale_fixers = {
+ \   'javascript': ['eslint'],
+ \   'python3': ['autopep8', 'isort', 'add_blank_lines_for_python_control_statements', 'yapf'],
+ \   'python': ['autopep8', 'isort', 'add_blank_lines_for_python_control_statements', 'yapf'],
+ \}
+
+let g:ale_completion_enabled = 1
+let g:ale_sign_column_always = 1
+let g:ale_lint_on_enter = 1
+let g:ale_python_flake8_auto_pipenv = 1
+let g:ale_fix_on_save = 1
 
 
 " HTML Auto Close

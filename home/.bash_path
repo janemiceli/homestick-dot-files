@@ -1,5 +1,6 @@
 #!/bin/bash
 # Usr Local Bin
+export PATH=/home/linuxbrew/.linuxbrew/bin:$PATH
 export PATH=$PATH:/opt/local/bin:/opt/local/sbin:/usr/local/sbin:/usr/include:$HOME/.local/bin/:$HOME/.local/share/virtualenvs/.vim-uZrd_9Fm/bin/
 
 command_exists () {

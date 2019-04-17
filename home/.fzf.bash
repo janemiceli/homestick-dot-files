@@ -1,14 +1,14 @@
 # Setup fzf
 # ---------
-if [[ ! "$PATH" == */home/rmeyer/.linuxbrew/opt/fzf/bin* ]]; then
-  export PATH="$PATH:/home/rmeyer/.linuxbrew/opt/fzf/bin"
+if [[ ! "$PATH" == */home/linuxbrew/.linuxbrew/opt/fzf/bin* ]]; then
+  export PATH="$PATH:/home/linuxbrew/.linuxbrew/opt/fzf/bin"
 fi
 
 # Auto-completion
 # ---------------
-[[ $- == *i* ]] && source "/home/rmeyer/.linuxbrew/opt/fzf/shell/completion.bash" 2> /dev/null
+[[ $- == *i* ]] && source "/home/linuxbrew/.linuxbrew/opt/fzf/shell/completion.bash" 2> /dev/null
 
 # Key bindings
 # ------------
-source "/home/rmeyer/.linuxbrew/opt/fzf/shell/key-bindings.bash"
+source "/home/linuxbrew/.linuxbrew/opt/fzf/shell/key-bindings.bash"
 

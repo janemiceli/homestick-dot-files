@@ -1,7 +1,7 @@
 # ~/.tmuxinator/gcp-rails.yml
 
 name: pivotal
-root: ~/dev/taos/portal-app/
+root: ~/dev/pivotal/pivotal-haas-self-service-portal
 
 # Optional tmux socket
 # socket_name: foo
