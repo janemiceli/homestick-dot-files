@@ -79,7 +79,3 @@ fi
 if [ -f "$HOME/tools/z.sh" ] ; then
   . ~/tools/z.sh
 fi
-
-# This should swap caps with escape, I actually want both to be escape
-# setxkbmap -option caps:swapescape
-setxkbmap -option caps:escape

@@ -23,6 +23,7 @@ if dein#load_state($HOME.'/tools/dein')
   call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
   call dein#add('bling/vim-airline')
   call dein#add('gcmt/wildfire.vim')
+  call dein#add('janko-m/vim-test')
   call dein#add('kien/ctrlp.vim')
   call dein#add('ludovicchabant/vim-gutentags')
   call dein#add('majutsushi/tagbar')
@@ -35,11 +36,13 @@ if dein#load_state($HOME.'/tools/dein')
   call dein#add('tpope/vim-fugitive')
   call dein#add('tpope/vim-haml')
   call dein#add('tpope/vim-surround')
+  call dein#add('tpope/vim-rhubarb')
+
   call dein#add('vim-scripts/Align')
   call dein#add('vim-scripts/L9')
   call dein#add('vim-scripts/matchit.zip')
   call dein#add('vim-scripts/taglist.vim')
-  call dein#add('janko-m/vim-test')
+  " call dein#add('editorconfig/editorconfig-vim')
 
   " Searching
   call dein#add('vim-scripts/FuzzyFinder')
@@ -81,6 +84,7 @@ if dein#load_state($HOME.'/tools/dein')
 
   " Linters
   call dein#add('w0rp/ale')
+  call dein#add('ambv/black')
 
   " Completion
   call dein#add('Shougo/deoplete.nvim')
@@ -105,6 +109,10 @@ if dein#load_state($HOME.'/tools/dein')
   " call dein#add('HerringtonDarkholme/yats.vim')
   " call dein#add('Quramy/vim-js-pretty-template')
   " call dein#add('Quramy/tsuquyomi') " , { 'build': './make', 'rtp': '' })
+  "
+  "
+  " Java / Kotlin
+  call dein#add('sheerun/vim-polyglot')
 
   if !has('nvim')
     call dein#add('roxma/nvim-yarp')
@@ -278,6 +286,8 @@ highlight Pmenu ctermbg=238 gui=bold
 
 " Removes trailing spaces
 autocmd BufWritePre *.rb :%s/\s\+$//e
+autocmd BufRead *.py execute ':Black'
+autocmd BufWritePre *.py execute ':Black'
 
 function TrimWhiteSpace()
   %s/\s*$//
@@ -471,6 +481,9 @@ set runtimepath+=~/.vim/dein/repos/github.com/Shougo/deoplete.nvim/
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_debug = 1
 let g:deoplete#enable_profile = 1
+
+
+" let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 
 call deoplete#enable_logging('DEBUG', '/tmp/deoplete.log')
 
