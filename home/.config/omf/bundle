@@ -1,0 +1,6 @@
+package direnv
+package fasd
+package fzf
+package z
+theme default
+theme zish

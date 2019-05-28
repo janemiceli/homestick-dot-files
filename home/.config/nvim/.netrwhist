@@ -1,0 +1,11 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/home/rmeyer/.homesick/repos/homestick-dot-files/home'
+let g:netrw_dirhist_2='/home/rmeyer/.homesick/repos/homestick-dot-files'
+let g:netrw_dirhist_3='/home/rmeyer/.homesick/repos/homestick-dot-files/home'
+let g:netrw_dirhist_4='/home/rmeyer/.homesick/repos/homestick-dot-files/home/.config/nvim'
+let g:netrw_dirhist_5='/home/rmeyer'
+let g:netrw_dirhist_6='/home/rmeyer/.homesick/repos/homestick-dot-files/home'
+let g:netrw_dirhist_7='/home/rmeyer/.homesick/repos/homestick-dot-files'
+let g:netrw_dirhist_8='/home/rmeyer/.homesick/repos/homestick-dot-files/home'
+let g:netrw_dirhist_9='/home/rmeyer/.local/share/nvim/site/autoload'
