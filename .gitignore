@@ -1,5 +1,9 @@
 home/.config
+
+!home/.config/fish/**
 !home/.config/nvim/**
+!home/.config/omf/**
+!home/.config/tmuxinator/**
 
 home/.floo
 home/.floorc
@@ -9,5 +13,5 @@ home/.gitconfig
 
 home/config
 
-tags
+tags*
 
