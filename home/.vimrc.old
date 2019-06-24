@@ -1,4 +1,5 @@
 filetype off                  " required
+set shell=/bin/sh
 
 "dein Scripts-----------------------------
 if &compatible
@@ -21,14 +22,16 @@ if dein#load_state($HOME.'/tools/dein')
   call dein#add('AndrewRadev/splitjoin.vim')
   call dein#add('Raimondi/delimitMate')
   call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
-  call dein#add('bling/vim-airline')
+  call dein#add('vim-airline/vim-airline')
   call dein#add('gcmt/wildfire.vim')
   call dein#add('janko-m/vim-test')
   call dein#add('kien/ctrlp.vim')
   call dein#add('ludovicchabant/vim-gutentags')
+  call dein#add('skywind3000/gutentags_plus')
   call dein#add('majutsushi/tagbar')
   call dein#add('rhysd/committia.vim')
   call dein#add('scrooloose/nerdtree')
+  call dein#add('Xuyuanp/nerdtree-git-plugin')
   call dein#add('tomtom/tlib_vim')
   call dein#add('tpope/vim-abolish.git')
   call dein#add('tpope/vim-commentary')
@@ -46,7 +49,6 @@ if dein#load_state($HOME.'/tools/dein')
 
   " Terraform
   call dein#add('hashivim/vim-terraform')
-  " call dein#add('vim-syntastic/syntastic')
   call dein#add('juliosueiras/vim-terraform-completion')
 
   " Searching
@@ -96,7 +98,10 @@ if dein#load_state($HOME.'/tools/dein')
   call dein#add('Shougo/deoplete.nvim')
   call dein#add('zchee/deoplete-jedi')
   call dein#add('ervandew/supertab')
+  call dein#add('neoclide/coc.nvim', { 'build': './install.sh nightly', 'merged': 0 })
+  
   " call dein#add('python-rope/ropevim')
+  " call dein#add('vim-syntastic/syntastic')
 
   " Rails / Ruby
   call dein#add('thoughtbot/vim-rspec')
@@ -106,21 +111,31 @@ if dein#load_state($HOME.'/tools/dein')
   call dein#add('skalnik/vim-vroom')
 
   " Chef
-  " call dein#add('vadv/vim-chef')
+  call dein#add('vadv/vim-chef')
 
   " Javascript
-  " call dein#add('jelera/vim-javascript-syntax')
+  call dein#add('jelera/vim-javascript-syntax')
   call dein#add('maksimr/vim-jsbeautify')
-  " call dein#add('mhartington/nvim-typescript')
-  " call dein#add('HerringtonDarkholme/yats.vim')
-  " call dein#add('Quramy/vim-js-pretty-template')
-  " call dein#add('Quramy/tsuquyomi') " , { 'build': './make', 'rtp': '' })
+  call dein#add('mhartington/nvim-typescript')
+  call dein#add('HerringtonDarkholme/yats.vim')
+  call dein#add('Quramy/vim-js-pretty-template')
+  call dein#add('Quramy/tsuquyomi') " , { 'build': './make', 'rtp': '' })
+
+  " Postman replacement
+  call dein#add('iamcco/coc-post')
+
+  " Snipbits
+  call dein#add('SirVer/ultisnips')
+  call dein#add('honza/vim-snippets')
+  call dein#add('Shougo/neosnippet.vim')
+  call dein#add('Shougo/neosnippet-snippets')
 
   if !has('nvim')
     call dein#add('roxma/nvim-yarp')
     call dein#add('roxma/vim-hug-neovim-rpc')
   endif
 
+  let g:deoplete#enable_at_startup = 1
 
   " Required
   call dein#end()
@@ -156,24 +171,61 @@ set timeoutlen=250      " Time to wait after ESC (default causes an annoying del
 " Status Bar
 set laststatus=2  " Always show status line.
 
+
+" Gutentags
+" enable gtags module
+let g:gutentags_modules = ['ctags', 'gtags_cscope']
+
+" config project root markers.
+" let g:gutentags_project_root = ['.root']
+
+" generate datebases in my cache directory, prevent gtags files polluting my project
+let g:gutentags_cache_dir = expand('~/.cache/tags')
+
+" change focus to quickfix window after search (optional).
+let g:gutentags_plus_switch = 1
+
 " #######################################################################
 " Airline Vim Tagbar Setup
-let g:airline#extensions#default#section_truncate_width = {
-      \ 'a': 30,
-      \ 'b': 150,
-      \ 'x': 100,
-      \ 'c': 0,
-      \ 'y': 100,
-      \ 'z': 10,
-      \ }
-  let g:airline#extensions#default#layout = [
-      \ [ 'a', 'b', 'c'],
-      \ [ 'x', 'z', 'warning' ]
-      \ ]
+" if you want to disable auto detect, comment out those two lines
+"let g:airline#extensions#disable_rtp_load = 1
+"let g:airline_extensions = ['branch', 'hunks', 'coc']
+"
+"
+" # START TF Config
+" Syntastic Config
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%{coc#status()}
+" set statusline+=%*
+" set statusline+=%{gutentags#statusline()}
 
-  " Set this. Airline will handle the rest.
-  " Enabled ALE  Airline
-  let g:airline#extensions#ale#enabled = 1
+" let g:airline_section_error = '%{airline#util#wrap(airline#extensions#coc#get_error(),0)}'
+" let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_warning(),0)}'
+  " let g:airline_section_b = 'GT: %{gutentags#statusline()}'
+  " let g:airline_section_b = 'FUCK YOU DUDE: %{gutentags#statusline()}}'
+  let g:airline_section_c = '%t'
+
+" let g:airline#extensions#default#section_truncate_width = {
+"       \ 'a': 30,
+"       \ 'b': 150,
+"       \ 'x': 100,
+"       \ 'c': 0,
+"       \ 'y': 100,
+"       \ 'z': 10,
+"       \ }
+"   let g:airline#extensions#default#layout = [
+"       \ [ 'a', 'b', 'c'],
+"       \ [ 'x', 'z', 'warning' ]
+"       \ ]
+
+"   " Set this. Airline will handle the rest.
+"   " Enabled ALE  Airline
+"   let g:airline#extensions#ale#enabled = 1
+"   let g:airline_section_b = 'GT: %{gutentags#statusline()}'
+"   let g:ale_linters = {
+"     \ 'sh': ['language_server'],
+"     \ }
 "
 " #######################################################################
 
@@ -242,12 +294,10 @@ set noerrorbells  " No noise.
 "Set Mapping to ,
 "**********************************************************
 let mapleader = ","
+
 "Use jj as escape .. Eaiser?
 imap jj <ESC>
 imap jk <Esc>
-
-" au VimEnter * !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
-" au VimLeave * !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Caps_Lock'
 
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>r :edit!<CR>
@@ -260,20 +310,16 @@ vmap <Leader>p "+p
 vmap <Leader>P "+P
 
 " Rspec
-" map <Leader>t :call RunCurrentSpecFile()<CR>
-" map <Leader>s :call RunNearestSpec()<CR>
-" map <Leader>l :call RunLastSpec()<CR>
-" map <Leader>a :call RunAllSpecs()<CR>
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
 
-" let g:rspec_command = "bundle exec rspec --drb {spec}"
+let g:rspec_command = "bundle exec rspec --drb {spec}"
 
-" Hack to fix vim-fugitive
-" let g:netrw_browsex_viewer = 'gnome-open'
-
-" Set you complete me options
-" Use :lopen to open list window
-" let g:EclimCompletionMethod = 'omnifunc'
+" I dont remember what this is for
 map <Leader>l :lopen<CR>
+
 
 
 "improve autocomplete menu color
@@ -291,6 +337,12 @@ function TrimWhiteSpace()
 
 function! FormatJSON()
   %!python -m json.tool
+endfunction
+
+function! SetupCommandAbbrs(from, to)
+  exec 'cnoreabbrev <expr> '.a:from
+        \ .' ((getcmdtype() ==# ":" && getcmdline() ==# "'.a:from.'")'
+        \ .'? ("'.a:to.'") : ("'.a:from.'"))'
 endfunction
 
 
@@ -316,6 +368,7 @@ autocmd Filetype python setlocal ts=4 sw=4 sts=0 expandtab
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 map <Leader>rt :!ctags -R --extra=+f --exclude=@/home/rmeyer/.ctags_ignore .<CR><CR>
+" map <Leader>rt :!ctags -R --extra=+f .<CR><CR>
 
 " --exclude=.git --exclude=public/assets --exclude=log -R * --exclude=build --exclude=node_modules<CR><CR>
 
@@ -494,8 +547,28 @@ if has('nvim')
   call deoplete#enable_logging('DEBUG', '/tmp/deoplete.log')
 endif
 
-" let g:EditorConfig_exclude_patterns = ['fugitive://.*']
+" Plugin key-mappings.
+" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
 
+" SuperTab like snippets behavior.
+" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
+"imap <expr><TAB>
+" \ pumvisible() ? "\<C-n>" :
+" \ neosnippet#expandable_or_jumpable() ?
+" \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+" Enable snipMate compatibility feature.
+let g:neosnippet#enable_snipmate_compatibility = 1
+
+" For conceal markers.
+if has('conceal')
+  set conceallevel=2 concealcursor=niv
+endif
 
 let g:python_host_prog=$HOME.'/.local/share/virtualenvs/vim2/bin/python2'
 
@@ -503,21 +576,6 @@ let g:python3_host_prog=$HOME.'/.local/share/virtualenvs/vim3/bin/python3'
 let g:python3host_prog=$HOME.'/.local/share/virtualenvs/vim3/bin/python3'
 
 
-" let g:syntastic_python_checkers=['python3', 'flake8']
-" let g:syntastic_python_flake8_exec = 'python3'
-" let g:syntastic_python_flake8_args = ['-m', 'flake8']
-
-" let g:syntastic_auto_loc_list=1
-" let g:syntastic_disabled_filetypes=['html']
-" let g:syntastic_enable_signs=1
-" let g:syntastic_check_on_open=1
-" let g:syntastic_enable_signs=1
-
-" # START TF Config
-" Syntastic Config
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
