@@ -84,3 +84,4 @@ rubocop.yml
 
 /new_crypted/
 /ignore*/
+.tool-versions

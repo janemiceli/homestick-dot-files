@@ -87,7 +87,7 @@ if dein#load_state($HOME.'/tools/dein')
   call dein#add('junegunn/rainbow_parentheses.vim')
   call dein#add('kien/rainbow_parentheses.vim')
 
-"   " Floobits
+  " Floobits
   call dein#add('Floobits/floobits-neovim')
 
   " Linters
@@ -116,7 +116,7 @@ if dein#load_state($HOME.'/tools/dein')
   " Javascript
   call dein#add('jelera/vim-javascript-syntax')
   call dein#add('maksimr/vim-jsbeautify')
-  call dein#add('mhartington/nvim-typescript')
+  " call dein#add('mhartington/nvim-typescript')
   call dein#add('HerringtonDarkholme/yats.vim')
   call dein#add('Quramy/vim-js-pretty-template')
   call dein#add('Quramy/tsuquyomi') " , { 'build': './make', 'rtp': '' })
@@ -125,10 +125,10 @@ if dein#load_state($HOME.'/tools/dein')
   call dein#add('iamcco/coc-post')
 
   " Snipbits
-  call dein#add('SirVer/ultisnips')
-  call dein#add('honza/vim-snippets')
-  call dein#add('Shougo/neosnippet.vim')
-  call dein#add('Shougo/neosnippet-snippets')
+  " call dein#add('SirVer/ultisnips')
+  " call dein#add('honza/vim-snippets')
+  " call dein#add('Shougo/neosnippet.vim')
+  " call dein#add('Shougo/neosnippet-snippets')
 
   if !has('nvim')
     call dein#add('roxma/nvim-yarp')
@@ -614,7 +614,7 @@ let g:nvim_typescript#javascript_support = 1
 let g:indent_guides_enable_on_vim_startup = 1
 
 
-autocmd BufNewFile,BufRead *.ts setlocal filetype=typescript
+" autocmd BufNewFile,BufRead *.ts setlocal filetype=typescript
 
  " Ale ES Linter
 
