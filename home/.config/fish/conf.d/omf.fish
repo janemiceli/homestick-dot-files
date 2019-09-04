@@ -5,3 +5,5 @@ set -q XDG_DATA_HOME
 
 # Load Oh My Fish configuration.
 source $OMF_PATH/init.fish
+
+set -U keychain_init_args --quiet --confhost --timeout 60 --agents ssh,gpg

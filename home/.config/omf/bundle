@@ -1,6 +1,7 @@
 package direnv
 package fasd
 package fzf
+package keychain
 package z
 theme default
 theme zish
