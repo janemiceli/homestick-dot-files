@@ -79,8 +79,12 @@ if dein#load_state($HOME.'/tools/dein')
   call dein#add('chriskempson/tomorrow-theme')
   call dein#add('freeo/vim-kalisi')
   call dein#add('twerth/ir_black')
+  call dein#add('ayu-theme/ayu-vim')
+  call dein#add('mhartington/oceanic-next')
+
   call dein#add('vim-scripts/Wombat')
   call dein#add('w0ng/vim-hybrid')
+  call dein#add('joshdick/onedark.vim')
 
   " Vim indent
   call dein#add('nathanaelkane/vim-indent-guides')
@@ -446,8 +450,10 @@ if has('gui_running')
   set lazyredraw "faster processing
 else
  " colorscheme kalisi
- colorscheme wombat
+ " colorscheme wombat
+ colorscheme onedark
  " colorscheme ir_black
+ " colorscheme tomorrow
  " colorscheme hybrid
  set termguicolors "Remove this in urxvt
 end
