@@ -1,7 +1,10 @@
+package asdf
+package bass
 package direnv
 package fasd
 package fzf
 package keychain
+package linuxbrew
 package z
 theme default
 theme zish

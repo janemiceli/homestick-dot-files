@@ -10,3 +10,4 @@ source ~/.asdf/asdf.fish
 
 # Fish hook for direnv
 direnv hook fish | source
+set -g fish_user_paths "/home/linuxbrew/.linuxbrew/sbin" $fish_user_paths

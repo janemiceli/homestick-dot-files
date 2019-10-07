@@ -46,4 +46,3 @@ windows:
   - editor: nvim .
   - server: ll
   - logs: ll
-  - bash: bash

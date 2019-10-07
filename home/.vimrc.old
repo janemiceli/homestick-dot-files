@@ -45,7 +45,9 @@ if dein#load_state($HOME.'/tools/dein')
   call dein#add('vim-scripts/L9')
   call dein#add('vim-scripts/matchit.zip')
   call dein#add('vim-scripts/taglist.vim')
-  " call dein#add('editorconfig/editorconfig-vim')
+
+  " EditorConfig files
+  call dein#add('editorconfig/editorconfig-vim')
 
   " Terraform
   call dein#add('hashivim/vim-terraform')
@@ -97,6 +99,7 @@ if dein#load_state($HOME.'/tools/dein')
   " Linters
   call dein#add('w0rp/ale')
   call dein#add('ambv/black')
+  " call dein#add('tell-k/vim-autopep8')
 
   " Completion
   call dein#add('Shougo/deoplete.nvim')
@@ -174,6 +177,9 @@ set timeoutlen=250      " Time to wait after ESC (default causes an annoying del
 
 " Status Bar
 set laststatus=2  " Always show status line.
+
+" Editor Config plays nicely with TPope Fugitive
+let g:EditorConfig_exclude_patterns = ['fugitive://.\*']
 
 
 " Gutentags
@@ -626,8 +632,8 @@ let g:indent_guides_enable_on_vim_startup = 1
 
  let g:ale_fixers = {
  \   'javascript': ['eslint'],
- \   'python3': ['autopep8', 'isort', 'add_blank_lines_for_python_control_statements', 'yapf'],
- \   'python': ['autopep8', 'isort', 'add_blank_lines_for_python_control_statements', 'yapf'],
+ \   'python3': ['black', 'autopep8', 'isort', 'add_blank_lines_for_python_control_statements', 'yapf'],
+ \   'python': ['black','autopep8', 'isort', 'add_blank_lines_for_python_control_statements', 'yapf'],
  \}
 
 let g:ale_completion_enabled = 1
