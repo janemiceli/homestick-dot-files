@@ -46,4 +46,4 @@ windows:
   - editor: nvim .
   - server: ll
   - logs: git status
-  - bash: bash
+  - other: ll
