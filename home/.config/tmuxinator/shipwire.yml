@@ -43,7 +43,9 @@ root: ~/dev/shipwire
 # post: tmux -CC attach -t shipwire
 
 windows:
-  - vim: nvim .
-  - guard: be guard
-  - server: ls -al
-  - logs: tail -f log/development.log
+  - jenkins-vim: cd jenkins-seeds; nvim .
+  - jenkins: cd jenkins-seeds
+  - ansible-vim: cd ansible-gcp; nvim .
+  - ansible: cd ansible-gcp
+  - life-vim: cd lifecycles; nvim .
+  - life: cd lifecycles
