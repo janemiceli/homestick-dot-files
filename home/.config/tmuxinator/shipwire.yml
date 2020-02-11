@@ -43,9 +43,9 @@ root: ~/dev/shipwire
 # post: tmux -CC attach -t shipwire
 
 windows:
-  - jenkins-vim: cd jenkins-seeds; nvim .
-  - jenkins: cd jenkins-seeds
-  - ansible-vim: cd ansible-gcp; nvim .
-  - ansible: cd ansible-gcp
+  - jenkins-vim: cd jenkins-seed; nvim .
+  - jenkins: cd jenkins-seed
+  - ansible-vim: cd gcp; nvim .
+  - ansible: cd gcp
   - life-vim: cd lifecycles; nvim .
   - life: cd lifecycles

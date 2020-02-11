@@ -10,6 +10,10 @@
 # NVM setup
 .nvmrc
 tags
+
+
+# Node Modules
+node_modules
  
 # Packages #
 ############
@@ -85,3 +89,9 @@ rubocop.yml
 /new_crypted/
 /ignore*/
 .tool-versions
+
+.mypy_cache/
+
+.vscode
+
+venv

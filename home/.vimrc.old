@@ -105,7 +105,9 @@ if dein#load_state($HOME.'/tools/dein')
   call dein#add('Shougo/deoplete.nvim')
   call dein#add('zchee/deoplete-jedi')
   call dein#add('ervandew/supertab')
-  call dein#add('neoclide/coc.nvim', { 'build': './install.sh nightly', 'merged': 0 })
+  " call dein#add('neoclide/coc.nvim', { 'build': './install.sh nightly', 'merged': 0 })
+  call dein#add('neoclide/coc.nvim', {'merged':0, 'rev': 'release'})
+
   
   " call dein#add('python-rope/ropevim')
   " call dein#add('vim-syntastic/syntastic')
@@ -116,6 +118,9 @@ if dein#load_state($HOME.'/tools/dein')
   call dein#add('tpope/vim-bundler')
   call dein#add('vim-ruby/vim-ruby')
   call dein#add('skalnik/vim-vroom')
+
+  " Puppet
+  call dein#add('rodjek/vim-puppet')
 
   " Chef
   call dein#add('vadv/vim-chef')
@@ -510,8 +515,10 @@ filetype plugin on " Enable filetype-specific plugins
 imap hh =>
 imap kk ->
 imap aa @
-imap ;; {% %}
+" imap ;; {% %}
 imap zz import pudb<CR>pudb.set_trace()
+imap ;; """"<CR><CR>"""
+
 
 " Change which file opens after executing :Rails command
 " ****************************************
@@ -630,10 +637,11 @@ let g:indent_guides_enable_on_vim_startup = 1
 
  " Ale ES Linter
 
+
  let g:ale_fixers = {
  \   'javascript': ['eslint'],
  \   'python3': ['black', 'autopep8', 'isort', 'add_blank_lines_for_python_control_statements', 'yapf'],
- \   'python': ['black','autopep8', 'isort', 'add_blank_lines_for_python_control_statements', 'yapf'],
+ \   'python': ['black', 'autopep8', 'isort', 'add_blank_lines_for_python_control_statements', 'yapf'],
  \}
 
 let g:ale_completion_enabled = 1

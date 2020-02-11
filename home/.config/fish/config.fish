@@ -5,9 +5,10 @@ set -g fish_user_paths "/home/linuxbrew/.linuxbrew/bin" $fish_user_paths
 
 set -x EDITOR nvim
 
-# Fish hook for asdf
-source ~/.asdf/asdf.fish
-
 # Fish hook for direnv
-direnv hook fish | source
 set -g fish_user_paths "/home/linuxbrew/.linuxbrew/sbin" $fish_user_paths
+
+source /home/rmeyer/.config/broot/launcher/fish/br
+source /home/linuxbrew/.linuxbrew/opt/asdf/asdf.fish
+
+direnv hook fish | source
