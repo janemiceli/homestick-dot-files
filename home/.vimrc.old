@@ -23,22 +23,27 @@ if dein#load_state($HOME.'/tools/dein')
   call dein#add('Raimondi/delimitMate')
   call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
   call dein#add('vim-airline/vim-airline')
-  call dein#add('gcmt/wildfire.vim')
   call dein#add('janko-m/vim-test')
   call dein#add('kien/ctrlp.vim')
   call dein#add('ludovicchabant/vim-gutentags')
   call dein#add('skywind3000/gutentags_plus')
   call dein#add('majutsushi/tagbar')
-  call dein#add('rhysd/committia.vim')
   call dein#add('scrooloose/nerdtree')
-  call dein#add('Xuyuanp/nerdtree-git-plugin')
   call dein#add('tomtom/tlib_vim')
+
+
+  call dein#add('gcmt/wildfire.vim')
+
+  " Search and Replace
   call dein#add('tpope/vim-abolish.git')
-  call dein#add('tpope/vim-commentary')
-  call dein#add('tpope/vim-endwise')
-  call dein#add('tpope/vim-fugitive')
   call dein#add('tpope/vim-haml')
   call dein#add('tpope/vim-surround')
+
+  " Git
+  call dein#add('rhysd/committia.vim')
+  call dein#add('Xuyuanp/nerdtree-git-plugin')
+  call dein#add('tpope/vim-commentary')
+  call dein#add('tpope/vim-fugitive')
   call dein#add('tpope/vim-rhubarb')
 
   call dein#add('vim-scripts/Align')
@@ -90,8 +95,8 @@ if dein#load_state($HOME.'/tools/dein')
 
   " Vim indent
   call dein#add('nathanaelkane/vim-indent-guides')
-  call dein#add('junegunn/rainbow_parentheses.vim')
-  call dein#add('kien/rainbow_parentheses.vim')
+  " call dein#add('junegunn/rainbow_parentheses.vim')
+  call dein#add('eapache/rainbow_parentheses.vim')
 
   " Floobits
   call dein#add('Floobits/floobits-neovim')
@@ -118,6 +123,7 @@ if dein#load_state($HOME.'/tools/dein')
   call dein#add('tpope/vim-bundler')
   call dein#add('vim-ruby/vim-ruby')
   call dein#add('skalnik/vim-vroom')
+  call dein#add('tpope/vim-endwise')
 
   " Puppet
   call dein#add('rodjek/vim-puppet')
@@ -260,7 +266,7 @@ set shiftwidth=4
 set expandtab
 
 " Visual
-set showmatch  " Show matching brackets.
+" set showmatch  " Show matching brackets.
 set mat=5  " Bracket blinking.
 set list
 
