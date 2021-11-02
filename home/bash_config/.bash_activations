@@ -53,9 +53,9 @@ if command_exists powerline-shell ; then
   fi
 fi
 
-if [ -f "$HOME/.homesick/" ] ; then
-  source "$HOME/.homesick/repos/homeshick/homeshick.sh"
-  source "$HOME/.homesick/repos/homeshick/completions/homeshick-completion.bash"
+if [ -f "$HOME/.homestick/" ] ; then
+  source "$HOME/.homestick/repos/homeshick/homeshick.sh"
+  source "$HOME/.homestick/repos/homeshick/completions/homeshick-completion.bash"
 fi
 
 if [ -d "$HOME/.nodenv/" ] ; then

@@ -21,4 +21,3 @@ alias rc='rubocop --auto-correct'
 alias ssh-agent='sudo eval `ssh-agent -s`'
 
 alias tm='tmuxinator'
-alias 2k='flootty --url https://floobits.com/rmeyer-taos/check-mk-web-api --create shell'

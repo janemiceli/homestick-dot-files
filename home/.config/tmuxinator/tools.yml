@@ -1,4 +1,4 @@
-# /home/rmeyer/.config/tmuxinator/tools.yml
+# $HOME/.config/tmuxinator/tools.yml
 
 name: tools
 root: ~/tools

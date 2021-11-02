@@ -1,4 +1,4 @@
-# /home/rmeyer/.config/tmuxinator/ansible.yml
+# $HOME/.config/tmuxinator/ansible.yml
 
 name: ansible
 root: ~/tools/ansible-workstations-ubuntu
